@@ -69,7 +69,7 @@ usbbluetooth_status_t USBBLUETOOTH_CALL usbbluetooth_write(usbbluetooth_device_t
     {
     case HCI_HDR_TYPE_CMD:
         err = libusb_control_transfer(dev->context.usb->handle,
-                                      LIBUSB_ENDPOINT_OUT | LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE,
+                                      LIBUSB_ENDPOINT_OUT | LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_DEVICE,
                                       0x00, 0x0000, 0x0000, &data[1], size, TIMEOUT);
         return (err < LIBUSB_SUCCESS) ? USBBLUETOOTH_STATUS_ERR_UNK : USBBLUETOOTH_STATUS_OK;
     case HCI_HDR_TYPE_ACL:
