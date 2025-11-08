@@ -1,7 +1,7 @@
 project(
     'usbbluetooth',
     'c',
-    version : run_command('git', '-C', meson.project_source_root(), 'describe', '--tags', '--always').stdout().strip(),
+    version : run_command('git', '-C', meson.project_source_root(), 'describe', '--tags', '--always', check: false).stdout().strip(),
     meson_version : '>= 0.60.0'
 )
 
